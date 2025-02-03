@@ -1,0 +1,8 @@
+{
+  "storage": {
+    "restaurants": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}

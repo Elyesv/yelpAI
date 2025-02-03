@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-yelpai-dev-61f72-authRole",
+      "UnauthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-dev-61f72-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-dev-61f72-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-yelpai-dev-61f72-deployment",
+      "UnauthRoleName": "amplify-yelpai-dev-61f72-unauthRole",
+      "StackName": "amplify-yelpai-dev-61f72",
+      "StackId": "arn:aws:cloudformation:eu-west-1:442042535844:stack/amplify-yelpai-dev-61f72/11131ee0-e20e-11ef-8bd5-0a97bf9d6cff",
+      "AmplifyAppId": "d2z4uv4hh8rza1"
+    },
+    "categories": {
+      "storage": {
+        "restaurants": {}
+      }
+    }
+  }
+}
