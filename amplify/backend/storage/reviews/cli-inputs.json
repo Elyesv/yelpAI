@@ -1,0 +1,10 @@
+{
+  "resourceName": "reviews",
+  "tableName": "reviews",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

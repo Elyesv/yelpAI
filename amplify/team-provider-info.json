@@ -13,7 +13,8 @@
     },
     "categories": {
       "storage": {
-        "restaurants": {}
+        "restaurants": {},
+        "reviews": {}
       }
     }
   }

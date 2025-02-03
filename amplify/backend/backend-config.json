@@ -3,6 +3,10 @@
     "restaurants": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
+    },
+    "reviews": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
     }
   }
 }
