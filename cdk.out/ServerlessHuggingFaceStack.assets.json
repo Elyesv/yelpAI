@@ -1,0 +1,32 @@
+{
+  "version": "39.0.0",
+  "files": {
+    "2991364ad12091010d195a8bec44cd419e5519b975c4b3b7792a1bb9396e8048": {
+      "source": {
+        "path": "ServerlessHuggingFaceStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "2991364ad12091010d195a8bec44cd419e5519b975c4b3b7792a1bb9396e8048.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {
+    "2c783800ba612c3548699f96defade9789626700fd113f932d8502928c231c50": {
+      "source": {
+        "directory": "asset.2c783800ba612c3548699f96defade9789626700fd113f932d8502928c231c50"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "repositoryName": "cdk-hnb659fds-container-assets-${AWS::AccountId}-${AWS::Region}",
+          "imageTag": "2c783800ba612c3548699f96defade9789626700fd113f932d8502928c231c50",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-image-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  }
+}

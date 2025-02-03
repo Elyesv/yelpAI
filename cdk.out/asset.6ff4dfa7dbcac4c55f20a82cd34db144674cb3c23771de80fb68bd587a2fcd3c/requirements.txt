@@ -1,0 +1,13 @@
+transformers
+torch
+nltk
+scikit-learn
+wordcloud
+matplotlib
+pandas
+stanza
+langdetect
+deep_translator
+boto3
+aws-cdk-lib>=2.0.0
+constructs>=10.0.0
