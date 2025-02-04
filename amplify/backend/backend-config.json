@@ -1,4 +1,89 @@
 {
+  "function": {
+    "fetchYelpRestaurants": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "restaurants"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "scrapYelpReviews": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "reviews"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "restaurants"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_fetchYelpRestaurants_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "fetchYelpRestaurants"
+        }
+      ]
+    },
+    "AMPLIFY_function_fetchYelpRestaurants_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "fetchYelpRestaurants"
+        }
+      ]
+    },
+    "AMPLIFY_function_fetchYelpRestaurants_yelpApiKey": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "fetchYelpRestaurants"
+        }
+      ]
+    },
+    "AMPLIFY_function_scrapYelpReviews_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "scrapYelpReviews"
+        }
+      ]
+    },
+    "AMPLIFY_function_scrapYelpReviews_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "scrapYelpReviews"
+        }
+      ]
+    }
+  },
   "storage": {
     "restaurants": {
       "providerPlugin": "awscloudformation",
