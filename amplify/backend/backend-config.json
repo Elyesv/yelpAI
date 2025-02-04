@@ -1,85 +1,71 @@
 {
-  "function": {
-    "fetchYelpRestaurants": {
-      "build": true,
+  "api": {
+    "getRestaurants": {
       "dependsOn": [
         {
           "attributes": [
             "Name",
-            "Arn",
-            "StreamArn"
+            "Arn"
           ],
-          "category": "storage",
-          "resourceName": "restaurants"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "scrapYelpReviews": {
-      "build": true,
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn",
-            "StreamArn"
-          ],
-          "category": "storage",
-          "resourceName": "reviews"
+          "category": "function",
+          "resourceName": "getRestaurantsFunction"
         },
         {
           "attributes": [
             "Name",
-            "Arn",
-            "StreamArn"
+            "Arn"
           ],
-          "category": "storage",
-          "resourceName": "restaurants"
+          "category": "function",
+          "resourceName": "getReviewsRestaurant"
         }
       ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "getRestaurantsFunction": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "getReviewsRestaurant": {
+      "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_fetchYelpRestaurants_deploymentBucketName": {
+    "AMPLIFY_function_getRestaurantsFunction_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "fetchYelpRestaurants"
+          "resourceName": "getRestaurantsFunction"
         }
       ]
     },
-    "AMPLIFY_function_fetchYelpRestaurants_s3Key": {
+    "AMPLIFY_function_getRestaurantsFunction_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "fetchYelpRestaurants"
+          "resourceName": "getRestaurantsFunction"
         }
       ]
     },
-    "AMPLIFY_function_fetchYelpRestaurants_yelpApiKey": {
+    "AMPLIFY_function_getReviewsRestaurant_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "fetchYelpRestaurants"
+          "resourceName": "getReviewsRestaurant"
         }
       ]
     },
-    "AMPLIFY_function_scrapYelpReviews_deploymentBucketName": {
+    "AMPLIFY_function_getReviewsRestaurant_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "scrapYelpReviews"
-        }
-      ]
-    },
-    "AMPLIFY_function_scrapYelpReviews_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "scrapYelpReviews"
+          "resourceName": "getReviewsRestaurant"
         }
       ]
     }

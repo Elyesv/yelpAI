@@ -1,16 +1,21 @@
 export type AmplifyDependentResourcesAttributes = {
+  "api": {
+    "getRestaurants": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    }
+  },
   "function": {
-    "fetchYelpRestaurants": {
+    "getRestaurantsFunction": {
       "Arn": "string",
-      "CloudWatchEventRule": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
       "Region": "string"
     },
-    "scrapYelpReviews": {
+    "getReviewsRestaurant": {
       "Arn": "string",
-      "CloudWatchEventRule": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
