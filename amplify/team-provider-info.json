@@ -15,6 +15,10 @@
       "storage": {
         "restaurants": {},
         "reviews": {}
+      },
+      "function": {
+        "getRestaurantsFunction": {},
+        "getReviewsRestaurant": {}
       }
     }
   },

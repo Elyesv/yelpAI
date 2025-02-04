@@ -20,22 +20,6 @@ export type AmplifyDependentResourcesAttributes = {
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
       "Region": "string"
-    },
-    "fetchYelpRestaurants": {
-      "Arn": "string",
-      "CloudWatchEventRule": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
-    "scrapYelpReviews": {
-      "Arn": "string",
-      "CloudWatchEventRule": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
     }
   },
   "storage": {
@@ -45,8 +29,6 @@ export type AmplifyDependentResourcesAttributes = {
       "PartitionKeyName": "string",
       "PartitionKeyType": "string",
       "Region": "string",
-      "SortKeyName"?: "string",
-      "SortKeyType"?: "string",
       "StreamArn": "string"
     },
     "reviews": {

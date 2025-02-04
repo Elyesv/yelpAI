@@ -3,12 +3,18 @@
     "getRestaurants": {
       "dependsOn": [
         {
-          "attributes": ["Name", "Arn"],
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
           "category": "function",
           "resourceName": "getRestaurantsFunction"
         },
         {
-          "attributes": ["Name", "Arn"],
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
           "category": "function",
           "resourceName": "getReviewsRestaurant"
         }
