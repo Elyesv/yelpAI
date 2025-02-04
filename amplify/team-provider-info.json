@@ -17,5 +17,35 @@
         "reviews": {}
       }
     }
+  },
+  "elyes": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-yelpai-elyes-a452e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-elyes-a452e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-elyes-a452e-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-yelpai-elyes-a452e-deployment",
+      "UnauthRoleName": "amplify-yelpai-elyes-a452e-unauthRole",
+      "StackName": "amplify-yelpai-elyes-a452e",
+      "StackId": "arn:aws:cloudformation:eu-west-1:442042535844:stack/amplify-yelpai-elyes-a452e/f5ce06e0-e217-11ef-ac8f-0aae8792b7f7",
+      "AmplifyAppId": "d2z4uv4hh8rza1"
+    },
+    "categories": {
+      "storage": {
+        "reviews": {},
+        "restaurants": {}
+      },
+      "function": {
+        "fetchYelpRestaurants": {
+          "deploymentBucketName": "amplify-yelpai-elyes-a452e-deployment",
+          "s3Key": "amplify-builds/fetchYelpRestaurants-6f62565a6d6a41386452-build.zip",
+          "yelpApiKey": "EHpxWzwNEnpGP3mezV6IT1voZKsokzmd7riUxYeTkYQKE46X9QLclplYCplbe3JeaYjytsfCGn8bgRqFDd2Ba29WbN8OPI1Py8EloO1XqmT5tSCwhIod3Qe2_n-gZ3Yx"
+        },
+        "scrapYelpReviews": {
+          "deploymentBucketName": "amplify-yelpai-elyes-a452e-deployment",
+          "s3Key": "amplify-builds/scrapYelpReviews-4c35685a794e43665871-build.zip"
+        }
+      }
+    }
   }
 }

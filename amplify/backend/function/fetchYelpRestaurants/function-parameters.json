@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "storage": {
+      "restaurants": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "yelpApiKey",
+      "environmentVariableName": "YELP_API_KEY"
+    }
+  ]
+}
