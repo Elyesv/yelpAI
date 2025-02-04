@@ -1,4 +1,4 @@
-#!/Applications/MAMP/htdocs/Sites/École/A5/yelpAI/venv/bin/python3.11
+#!/Users/adel/Local/School/BigData/yelpAI/venv/bin/python3.13
 # -*- coding: utf-8 -*-
 import re
 import sys
