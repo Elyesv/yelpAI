@@ -1,0 +1,8 @@
+{
+  "app": "python3.13 app.py",
+  "profile": "adel-bigdata",
+  "context": {
+    "aws-cdk:enableDiffNoFail": "true",
+    "@aws-cdk/core:stackRelativeExports": "true"
+  }
+}

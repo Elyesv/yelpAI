@@ -47,5 +47,18 @@
         }
       }
     }
+  },
+  "adel": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-yelpai-adel-d1076-authRole",
+      "UnauthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-adel-d1076-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-adel-d1076-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-yelpai-adel-d1076-deployment",
+      "UnauthRoleName": "amplify-yelpai-adel-d1076-unauthRole",
+      "StackName": "amplify-yelpai-adel-d1076",
+      "StackId": "arn:aws:cloudformation:eu-west-1:442042535844:stack/amplify-yelpai-adel-d1076/57119fc0-e218-11ef-b10f-062cf2a285cf",
+      "AmplifyAppId": "d2z4uv4hh8rza1"
+    }
   }
 }
