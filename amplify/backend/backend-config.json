@@ -24,6 +24,31 @@
     }
   },
   "function": {
+    "addFeelingAndWordCloud": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "reviews"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "restaurants"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "getRestaurantsFunction": {
       "build": true,
       "dependsOn": [],
@@ -37,35 +62,43 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_getRestaurantsFunction_deploymentBucketName": {
+    "AMPLIFY_function_fetchYelpRestaurants_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "getRestaurantsFunction"
+          "resourceName": "fetchYelpRestaurants"
         }
       ]
     },
-    "AMPLIFY_function_getRestaurantsFunction_s3Key": {
+    "AMPLIFY_function_fetchYelpRestaurants_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "getRestaurantsFunction"
+          "resourceName": "fetchYelpRestaurants"
         }
       ]
     },
-    "AMPLIFY_function_getReviewsRestaurant_deploymentBucketName": {
+    "AMPLIFY_function_fetchYelpRestaurants_yelpApiKey": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "getReviewsRestaurant"
+          "resourceName": "fetchYelpRestaurants"
         }
       ]
     },
-    "AMPLIFY_function_getReviewsRestaurant_s3Key": {
+    "AMPLIFY_function_scrapYelpReviews_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "getReviewsRestaurant"
+          "resourceName": "scrapYelpReviews"
+        }
+      ]
+    },
+    "AMPLIFY_function_scrapYelpReviews_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "scrapYelpReviews"
         }
       ]
     }
