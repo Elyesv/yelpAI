@@ -30,7 +30,6 @@ exports.handler = async (event) => {
   const docClient = DynamoDBDocumentClient.from(client);
 
   try {
-    // Récupérer les informations du restaurant
     const queryRestaurantCommand = new QueryCommand({
       TableName: process.env.STORAGE_RESTAURANTS_NAME,
       KeyConditionExpression: "id = :restaurantId",
@@ -48,7 +47,6 @@ exports.handler = async (event) => {
       };
     }
 
-    // Récupérer les reviews associées
     const scanReviewsCommand = new ScanCommand({
       TableName: process.env.STORAGE_REVIEWS_NAME,
       FilterExpression: "restaurant_id = :restaurant_id",
@@ -59,10 +57,9 @@ exports.handler = async (event) => {
 
     const reviewsData = await docClient.send(scanReviewsCommand);
 
-    // Combiner les résultats dans une seule réponse
     const response = {
-      restaurant: restaurantData.Items[0], // Récupère le premier restaurant (en supposant qu'il est unique)
-      reviews: reviewsData.Items || [], // Ajoute les reviews trouvées ou un tableau vide
+      restaurant: restaurantData.Items[0],
+      reviews: reviewsData.Items || [],
     };
 
     return {
