@@ -15,6 +15,18 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "storagerestaurantsName": {
+      "Type": "String",
+      "Default": "storagerestaurantsName"
+    },
+    "storagerestaurantsArn": {
+      "Type": "String",
+      "Default": "storagerestaurantsArn"
+    },
+    "storagerestaurantsStreamArn": {
+      "Type": "String",
+      "Default": "storagerestaurantsStreamArn"
     }
   },
   "Conditions": {
@@ -47,12 +59,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "getReviewsRestaurant",
+            "getRestaurants",
             {
               "Fn::Join": [
                 "",
                 [
-                  "getReviewsRestaurant",
+                  "getRestaurants",
                   "-",
                   {
                     "Ref": "env"
@@ -69,6 +81,15 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
+            },
+            "STORAGE_RESTAURANTS_NAME": {
+              "Ref": "storagerestaurantsName"
+            },
+            "STORAGE_RESTAURANTS_ARN": {
+              "Ref": "storagerestaurantsArn"
+            },
+            "STORAGE_RESTAURANTS_STREAMARN": {
+              "Ref": "storagerestaurantsStreamArn"
             }
           }
         },
@@ -89,12 +110,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "yelpaiLambdaRole948a1456",
+            "yelpaiLambdaRolef6a3383b",
             {
               "Fn::Join": [
                 "",
                 [
-                  "yelpaiLambdaRole948a1456",
+                  "yelpaiLambdaRolef6a3383b",
                   "-",
                   {
                     "Ref": "env"
@@ -165,13 +186,13 @@
         }
       }
     },
-    "LambdaTriggerPolicy": {
+    "AmplifyResourcesPolicy": {
       "DependsOn": [
         "LambdaExecutionRole"
       ],
       "Type": "AWS::IAM::Policy",
       "Properties": {
-        "PolicyName": "amplify-lambda-execution-policy-",
+        "PolicyName": "amplify-lambda-execution-policy",
         "Roles": [
           {
             "Ref": "LambdaExecutionRole"
@@ -183,34 +204,33 @@
             {
               "Effect": "Allow",
               "Action": [
-                "dynamodb:DescribeStream",
-                "dynamodb:GetRecords",
-                "dynamodb:GetShardIterator",
-                "dynamodb:ListStreams"
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:PartiQLSelect"
               ],
-              "Resource": "arn:aws:dynamodb:eu-west-1:442042535844:table/reviews-elyes/stream/2025-02-03T10:34:32.678"
+              "Resource": [
+                {
+                  "Ref": "storagerestaurantsArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storagerestaurantsArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
             }
           ]
         }
-      }
-    },
-    "LambdaEventSourceMapping": {
-      "Type": "AWS::Lambda::EventSourceMapping",
-      "DependsOn": [
-        "LambdaTriggerPolicy",
-        "LambdaExecutionRole"
-      ],
-      "Properties": {
-        "BatchSize": 100,
-        "Enabled": true,
-        "EventSourceArn": "arn:aws:dynamodb:eu-west-1:442042535844:table/reviews-elyes/stream/2025-02-03T10:34:32.678",
-        "FunctionName": {
-          "Fn::GetAtt": [
-            "LambdaFunction",
-            "Arn"
-          ]
-        },
-        "StartingPosition": "LATEST"
       }
     }
   },

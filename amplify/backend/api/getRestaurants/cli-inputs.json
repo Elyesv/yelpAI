@@ -3,14 +3,14 @@
   "paths": {
     "/restaurants": {
       "name": "/restaurants",
-      "lambdaFunction": "getRestaurantsFunction",
+      "lambdaFunction": "getRestaurants",
       "permissions": {
         "setting": "open"
       }
     },
-    "/reviews/{id}": {
-      "name": "/reviews/{id}",
-      "lambdaFunction": "getReviewsRestaurant",
+    "/reviews": {
+      "name": "/reviews",
+      "lambdaFunction": "getRestaurantReviews",
       "permissions": {
         "setting": "open"
       }
