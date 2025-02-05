@@ -1,15 +1,23 @@
-const awsServerlessExpress = require('aws-serverless-express');
-const app = require('./app');
-
-/**
- * @type {import('http').Server}
- */
-const server = awsServerlessExpress.createServer(app);
+/* Amplify Params - DO NOT EDIT
+	ENV
+	REGION
+	STORAGE_REVIEWS_ARN
+	STORAGE_REVIEWS_NAME
+	STORAGE_REVIEWS_STREAMARN
+Amplify Params - DO NOT EDIT */
 
 /**
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
-exports.handler = (event, context) => {
-  console.log(`EVENT: ${JSON.stringify(event)}`);
-  return awsServerlessExpress.proxy(server, event, context, 'PROMISE').promise;
+exports.handler = async (event) => {
+    console.log(`EVENT: ${JSON.stringify(event)}`);
+    return {
+        statusCode: 200,
+    //  Uncomment below to enable CORS requests
+    //  headers: {
+    //      "Access-Control-Allow-Origin": "*",
+    //      "Access-Control-Allow-Headers": "*"
+    //  },
+        body: JSON.stringify('Hello from Lambda!'),
+    };
 };

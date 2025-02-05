@@ -15,66 +15,19 @@
       "storage": {
         "restaurants": {},
         "reviews": {}
-      },
-      "function": {
-        "getRestaurantsFunction": {},
-        "getReviewsRestaurant": {}
       }
     }
   },
-  "elyes": {
+  "api": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-yelpai-elyes-a452e-authRole",
-      "UnauthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-elyes-a452e-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-elyes-a452e-authRole",
+      "AuthRoleName": "amplify-yelpai-api-657cf-authRole",
+      "UnauthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-api-657cf-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-api-657cf-authRole",
       "Region": "eu-west-1",
-      "DeploymentBucketName": "amplify-yelpai-elyes-a452e-deployment",
-      "UnauthRoleName": "amplify-yelpai-elyes-a452e-unauthRole",
-      "StackName": "amplify-yelpai-elyes-a452e",
-      "StackId": "arn:aws:cloudformation:eu-west-1:442042535844:stack/amplify-yelpai-elyes-a452e/f5ce06e0-e217-11ef-ac8f-0aae8792b7f7",
-      "AmplifyAppId": "d2z4uv4hh8rza1"
-    },
-    "categories": {
-      "storage": {
-        "reviews": {},
-        "restaurants": {}
-      },
-      "function": {
-        "fetchYelpRestaurants": {
-          "deploymentBucketName": "amplify-yelpai-elyes-a452e-deployment",
-          "s3Key": "amplify-builds/fetchYelpRestaurants-6f62565a6d6a41386452-build.zip",
-          "yelpApiKey": "EHpxWzwNEnpGP3mezV6IT1voZKsokzmd7riUxYeTkYQKE46X9QLclplYCplbe3JeaYjytsfCGn8bgRqFDd2Ba29WbN8OPI1Py8EloO1XqmT5tSCwhIod3Qe2_n-gZ3Yx"
-        },
-        "scrapYelpReviews": {
-          "deploymentBucketName": "amplify-yelpai-elyes-a452e-deployment",
-          "s3Key": "amplify-builds/scrapYelpReviews-4c35685a794e43665871-build.zip"
-        }
-      }
-    }
-  },
-  "adel": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-yelpai-adel-d1076-authRole",
-      "UnauthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-adel-d1076-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-adel-d1076-authRole",
-      "Region": "eu-west-1",
-      "DeploymentBucketName": "amplify-yelpai-adel-d1076-deployment",
-      "UnauthRoleName": "amplify-yelpai-adel-d1076-unauthRole",
-      "StackName": "amplify-yelpai-adel-d1076",
-      "StackId": "arn:aws:cloudformation:eu-west-1:442042535844:stack/amplify-yelpai-adel-d1076/57119fc0-e218-11ef-b10f-062cf2a285cf",
-      "AmplifyAppId": "d2z4uv4hh8rza1"
-    }
-  },
-  "augustin": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-yelpai-augustin-112908-authRole",
-      "UnauthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-augustin-112908-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::442042535844:role/amplify-yelpai-augustin-112908-authRole",
-      "Region": "eu-west-1",
-      "DeploymentBucketName": "amplify-yelpai-augustin-112908-deployment",
-      "UnauthRoleName": "amplify-yelpai-augustin-112908-unauthRole",
-      "StackName": "amplify-yelpai-augustin-112908",
-      "StackId": "arn:aws:cloudformation:eu-west-1:442042535844:stack/amplify-yelpai-augustin-112908/b4e549c0-e219-11ef-ac64-06cc425dcc8b",
+      "DeploymentBucketName": "amplify-yelpai-api-657cf-deployment",
+      "UnauthRoleName": "amplify-yelpai-api-657cf-unauthRole",
+      "StackName": "amplify-yelpai-api-657cf",
+      "StackId": "arn:aws:cloudformation:eu-west-1:442042535844:stack/amplify-yelpai-api-657cf/b405f810-e39f-11ef-b56b-0634badd78dd",
       "AmplifyAppId": "d2z4uv4hh8rza1"
     },
     "categories": {
@@ -85,9 +38,6 @@
       "function": {
         "getRestaurants": {},
         "getRestaurantReviews": {}
-      },
-      "api": {
-        "getRestaurants": {}
       }
     }
   }
