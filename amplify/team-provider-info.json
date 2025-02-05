@@ -36,8 +36,17 @@
         "reviews": {}
       },
       "function": {
-        "getRestaurants": {},
-        "getRestaurantReviews": {}
+        "getRestaurants": {
+          "deploymentBucketName": "amplify-yelpai-api-657cf-deployment",
+          "s3Key": "amplify-builds/getRestaurants-57634a436f3542643252-build.zip"
+        },
+        "getRestaurantReviews": {
+          "deploymentBucketName": "amplify-yelpai-api-657cf-deployment",
+          "s3Key": "amplify-builds/getRestaurantReviews-552f2b6853536e4c2f49-build.zip"
+        }
+      },
+      "api": {
+        "yelpapi": {}
       }
     }
   }

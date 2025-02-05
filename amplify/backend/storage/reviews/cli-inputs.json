@@ -5,6 +5,14 @@
     "fieldName": "id",
     "fieldType": "string"
   },
-  "gsi": [],
+  "gsi": [
+    {
+      "name": "restaurant_ids",
+      "partitionKey": {
+        "fieldName": "id",
+        "fieldType": "string"
+      }
+    }
+  ],
   "triggerFunctions": []
 }
