@@ -1,7 +1,7 @@
 {
   "version": "39.0.0",
   "files": {
-    "2991364ad12091010d195a8bec44cd419e5519b975c4b3b7792a1bb9396e8048": {
+    "35e9946935baf32e4eb451c6d8297a465c240c345da6fba0f24ad8ee40203726": {
       "source": {
         "path": "ServerlessHuggingFaceStack.template.json",
         "packaging": "file"
@@ -9,21 +9,21 @@
       "destinations": {
         "current_account-current_region": {
           "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
-          "objectKey": "2991364ad12091010d195a8bec44cd419e5519b975c4b3b7792a1bb9396e8048.json",
+          "objectKey": "35e9946935baf32e4eb451c6d8297a465c240c345da6fba0f24ad8ee40203726.json",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
         }
       }
     }
   },
   "dockerImages": {
-    "2c783800ba612c3548699f96defade9789626700fd113f932d8502928c231c50": {
+    "856181c9bce2189030d9dcd1c5b22681f121fc4c8eb7ab08efe44e257c597c3a": {
       "source": {
-        "directory": "asset.2c783800ba612c3548699f96defade9789626700fd113f932d8502928c231c50"
+        "directory": "asset.856181c9bce2189030d9dcd1c5b22681f121fc4c8eb7ab08efe44e257c597c3a"
       },
       "destinations": {
         "current_account-current_region": {
           "repositoryName": "cdk-hnb659fds-container-assets-${AWS::AccountId}-${AWS::Region}",
-          "imageTag": "2c783800ba612c3548699f96defade9789626700fd113f932d8502928c231c50",
+          "imageTag": "856181c9bce2189030d9dcd1c5b22681f121fc4c8eb7ab08efe44e257c597c3a",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-image-publishing-role-${AWS::AccountId}-${AWS::Region}"
         }
       }

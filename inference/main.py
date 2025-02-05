@@ -5,34 +5,57 @@ from extract_words import extract_keywords
 from collections import Counter
 
 def handler(event, context):
-    # Simuler les avis provenant d'une DB
-    reviews = event.get("reviews", [])
+    # Récupérer les commentaires sous forme de liste de chaînes
+    reviews = json.loads(event)
+    reviews = reviews.get("reviews", [])
 
-    # Analyse des sentiments pour chaque avis
-    for review in reviews:
-        review["feeling"] = analyse_feelings([review["comment"]])[0]
+    if not isinstance(reviews, list) or not all(isinstance(r, str) for r in reviews):
+        return {
+            "statusCode": 400,
+            "body": json.dumps({"error": "Invalid input format. Expected a list of strings."})
+        }
 
-    # Grouper par restaurant_id
-    restaurants = {}
-    for review in reviews:
-        rest_id = review["restaurant_id"]
-        if rest_id not in restaurants:
-            restaurants[rest_id] = {"comments": [], "feelings": []}
-        restaurants[rest_id]["comments"].append(review["comment"])
-        restaurants[rest_id]["feelings"].append(review["feeling"])
+    # Analyse des sentiments
+    feelings = analyse_feelings(reviews)
 
-    # Résultats finaux pour chaque restaurant
-    restaurant_results = []
-    for rest_id, data in restaurants.items():
-        most_common_feeling = Counter(data["feelings"]).most_common(1)[0][0]
-        word_cloud = extract_keywords(data["comments"], top_n=15)
-        restaurant_results.append({
-            "restaurant_id": rest_id,
-            "average_feeling": most_common_feeling,
-            "word_cloud": word_cloud
-        })
+    # Déterminer le sentiment dominant
+    most_common_feeling = Counter(feelings).most_common(1)[0][0]
+
+    # Extraire les mots-clés les plus importants
+    word_cloud = extract_keywords(reviews, top_n=15)
+
+    # Résultat final
+    result = {
+        "average_feeling": most_common_feeling,
+        "word_cloud": word_cloud
+    }
 
     return {
         "statusCode": 200,
-        "body": json.dumps(restaurant_results)
+        "body": json.dumps(result)
     }
+
+# ---- TEST LOCAL ----
+if __name__ == "__main__":
+    fake_event = {
+        "reviews": [
+            "J'adore cet endroit, le service est parfait !",
+            "Plats très moyens, et service un peu lent...",
+            "Excellente expérience, je recommande fortement !",
+            "Horrible, je ne reviendrai jamais !",
+            "Le personnel était adorable et très attentionné.",
+            "Service rapide, mais la nourriture était fade.",
+            "Food was amazing, I’ll definitely come back!",
+            "Terrible experience, the waiter was rude.",
+            "Best restaurant in town, highly recommended!",
+            "Pas mal, mais pas exceptionnel non plus.",
+            "Très cher pour la qualité proposée.",
+            "A great place to dine, the ambiance is wonderful!",
+            "Average food, nothing special.",
+            "J'ai adoré l'atmosphère, mais les plats étaient trop salés.",
+            "Great service but the food was just okay."
+        ]
+    }
+
+    response = handler(json.dumps(fake_event), None)
+    print(json.loads(response["body"]))

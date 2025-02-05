@@ -1,11 +1,11 @@
 import json
 import pandas as pd
-from analyse_feelings import analyse_feelings
-from extract_words import extract_keywords
+from inference.analyse_feelings import analyse_feelings
+from inference.extract_words import extract_keywords
 from collections import Counter
 
 def handler(event, context):
-    # Simuler les avis provenant d'une DB
+    # Récupérer les events depuis un json en string
     reviews = event.get("reviews", [])
 
     # Analyse des sentiments pour chaque avis
