@@ -17,6 +17,14 @@
           ],
           "category": "function",
           "resourceName": "getRestaurantReviews"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "getRestaurant"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -24,6 +32,31 @@
     }
   },
   "function": {
+    "getRestaurant": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "restaurants"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "reviews"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "getRestaurantReviews": {
       "build": true,
       "dependsOn": [
@@ -71,6 +104,22 @@
         {
           "category": "function",
           "resourceName": "getRestaurantReviews"
+        }
+      ]
+    },
+    "AMPLIFY_function_getRestaurant_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getRestaurant"
+        }
+      ]
+    },
+    "AMPLIFY_function_getRestaurant_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getRestaurant"
         }
       ]
     },
