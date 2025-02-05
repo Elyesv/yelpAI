@@ -83,14 +83,8 @@
         "reviews": {}
       },
       "function": {
-        "getRestaurantsFunction": {
-          "deploymentBucketName": "amplify-yelpai-augustin-112908-deployment",
-          "s3Key": "amplify-builds/getRestaurantsFunction-4d3348425961584d4757-build.zip"
-        },
-        "getReviewsRestaurant": {
-          "deploymentBucketName": "amplify-yelpai-augustin-112908-deployment",
-          "s3Key": "amplify-builds/getReviewsRestaurant-64344a5a4f434d58786c-build.zip"
-        }
+        "getRestaurants": {},
+        "getRestaurantReviews": {}
       },
       "api": {
         "getRestaurants": {}

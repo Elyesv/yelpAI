@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "getRestaurantsFunction"
+          "resourceName": "getRestaurants"
         },
         {
           "attributes": [
@@ -16,7 +16,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "getReviewsRestaurant"
+          "resourceName": "getRestaurantReviews"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -24,50 +24,37 @@
     }
   },
   "function": {
-    "getRestaurantsFunction": {
+    "getRestaurantReviews": {
       "build": true,
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "reviews"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "getReviewsRestaurant": {
+    "getRestaurants": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "restaurants"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
-    }
-  },
-  "parameters": {
-    "AMPLIFY_function_getRestaurantsFunction_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getRestaurantsFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_getRestaurantsFunction_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getRestaurantsFunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_getReviewsRestaurant_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getReviewsRestaurant"
-        }
-      ]
-    },
-    "AMPLIFY_function_getReviewsRestaurant_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getReviewsRestaurant"
-        }
-      ]
     }
   },
   "storage": {

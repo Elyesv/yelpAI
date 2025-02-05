@@ -7,14 +7,14 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "getRestaurantsFunction": {
+    "getRestaurantReviews": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
       "Region": "string"
     },
-    "getReviewsRestaurant": {
+    "getRestaurants": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
