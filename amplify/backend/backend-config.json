@@ -57,6 +57,40 @@
       "service": "Lambda"
     }
   },
+  "parameters": {
+    "AMPLIFY_function_getRestaurantReviews_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getRestaurantReviews"
+        }
+      ]
+    },
+    "AMPLIFY_function_getRestaurantReviews_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getRestaurantReviews"
+        }
+      ]
+    },
+    "AMPLIFY_function_getRestaurants_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getRestaurants"
+        }
+      ]
+    },
+    "AMPLIFY_function_getRestaurants_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getRestaurants"
+        }
+      ]
+    }
+  },
   "storage": {
     "restaurants": {
       "providerPlugin": "awscloudformation",
