@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "storage": {
+      "restaurants": [
+        "read"
+      ],
+      "reviews": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

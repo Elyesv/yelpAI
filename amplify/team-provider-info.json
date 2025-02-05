@@ -42,7 +42,11 @@
         },
         "getRestaurantReviews": {
           "deploymentBucketName": "amplify-yelpai-api-657cf-deployment",
-          "s3Key": "amplify-builds/getRestaurantReviews-552f2b6853536e4c2f49-build.zip"
+          "s3Key": "amplify-builds/getRestaurantReviews-466b6a34473745314342-build.zip"
+        },
+        "getRestaurant": {
+          "deploymentBucketName": "amplify-yelpai-api-657cf-deployment",
+          "s3Key": "amplify-builds/getRestaurant-592b4745524336384949-build.zip"
         }
       },
       "api": {
