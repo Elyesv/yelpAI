@@ -66,17 +66,17 @@ Ce projet vise à récupérer les restaurants de Paris depuis Yelp, analyser les
 ```
 
 ### 2. Récupérer les détails d’un restaurant sous forme de PDF
-**Endpoint** : `GET /api/restaurant?id={restaurant_id}`
+**Endpoint** : `GET /api/restaurant?restaurant_id={restaurant_id}`
 
-- **URL** : `https://zen5swbld0.execute-api.eu-west-1.amazonaws.com/api/restaurant?id=12345`
+- **URL** : `https://zen5swbld0.execute-api.eu-west-1.amazonaws.com/api/restaurant?restaurant_id=12345`
 - **Description** : Retourne les informations détaillées d’un restaurant sous forme de PDF.
 - **Paramètres** :
   - `restaurant_id` (obligatoire) : Identifiant du restaurant
 
 ### 3. Récupérer les avis d’un restaurant
-**Endpoint** : `GET /api/reviews?id={restaurant_id}`
+**Endpoint** : `GET /api/reviews?restaurant_id={restaurant_id}`
 
-- **URL** : `https://zen5swbld0.execute-api.eu-west-1.amazonaws.com/api/reviews?id=12345`
+- **URL** : `https://zen5swbld0.execute-api.eu-west-1.amazonaws.com/api/reviews?restaurant_id=12345`
 - **Description** : Retourne les avis d’un restaurant spécifique avec leur score de sentiment.
 - **Paramètres** :
   - `restaurant_id` (obligatoire) : Identifiant du restaurant
