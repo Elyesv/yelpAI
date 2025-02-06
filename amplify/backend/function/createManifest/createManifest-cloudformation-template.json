@@ -1,0 +1,244 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Lambda Function resource stack creation using Amplify CLI",
+    "Parameters": {
+        "CloudWatchRule": {
+            "Type": "String",
+            "Default" : "NONE",
+            "Description" : " Schedule Expression"
+        },
+        "deploymentBucketName": {
+            "Type": "String"
+        },
+        "env": {
+            "Type": "String"
+        },
+        "s3Key": {
+            "Type": "String"
+        }
+        ,
+    
+    
+    
+        "authyelpai8ad9abbeUserPoolId": {
+            "Type": "String",
+            "Default": "authyelpai8ad9abbeUserPoolId"
+            },
+        
+    
+        
+    
+        "storagepdfBucketName": {
+            "Type": "String",
+            "Default": "storagepdfBucketName"
+            },
+        
+    
+        
+    
+        "storagerestaurantsName": {
+            "Type": "String",
+            "Default": "storagerestaurantsName"
+            },
+        
+        "storagerestaurantsArn": {
+            "Type": "String",
+            "Default": "storagerestaurantsArn"
+            },
+        
+        "storagerestaurantsStreamArn": {
+            "Type": "String",
+            "Default": "storagerestaurantsStreamArn"
+            }
+        
+    
+        
+    
+    },
+    "Conditions": {
+        "ShouldNotCreateEnvResources": {
+            "Fn::Equals": [
+                {
+                    "Ref": "env"
+                },
+                "NONE"
+            ]
+        }
+    },
+    "Resources": {
+        "LambdaFunction": {
+          "Type": "AWS::Lambda::Function",
+          "Metadata": {
+            "aws:asset:path": "./src",
+            "aws:asset:property": "Code"
+          },
+          "Properties": {
+            "Code": {
+                "S3Bucket": {
+                    "Ref": "deploymentBucketName"
+                },
+                "S3Key": {
+                    "Ref": "s3Key"
+                }
+            },
+            "Handler": "index.handler",
+            "FunctionName": {
+                "Fn::If": [
+                    "ShouldNotCreateEnvResources",
+                    "createManifest",
+                    {
+
+                        "Fn::Join": [
+                            "",
+                            [
+                                "createManifest",
+                                "-",
+                                {
+                                    "Ref": "env"
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            },
+            "Environment": {
+                "Variables" : {"ENV":{"Ref":"env"},"REGION":{"Ref":"AWS::Region"},"AUTH_YELPAI8AD9ABBE_USERPOOLID":{"Ref":"authyelpai8ad9abbeUserPoolId"},"STORAGE_PDF_BUCKETNAME":{"Ref":"storagepdfBucketName"},"STORAGE_RESTAURANTS_NAME":{"Ref":"storagerestaurantsName"},"STORAGE_RESTAURANTS_ARN":{"Ref":"storagerestaurantsArn"},"STORAGE_RESTAURANTS_STREAMARN":{"Ref":"storagerestaurantsStreamArn"}}
+            },
+            "Role": { "Fn::GetAtt": ["LambdaExecutionRole", "Arn"] },
+            "Runtime": "python3.8",
+            "Layers": [],
+            "Timeout": 25
+          }
+        },
+        "LambdaExecutionRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": {
+                    "Fn::If": [
+                        "ShouldNotCreateEnvResources",
+                        "yelpaiLambdaRole84b9fa67",
+                        {
+
+                            "Fn::Join": [
+                                "",
+                                [
+                                    "yelpaiLambdaRole84b9fa67",
+                                    "-",
+                                    {
+                                        "Ref": "env"
+                                    }
+                                ]
+                            ]
+                        }
+                    ]
+                },
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+        ,"lambdaexecutionpolicy": {
+            "DependsOn": ["LambdaExecutionRole"],
+            "Type": "AWS::IAM::Policy",
+            "Properties": {
+                "PolicyName": "lambda-execution-policy",
+                "Roles": [{ "Ref": "LambdaExecutionRole" }],
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": ["logs:CreateLogGroup",
+                            "logs:CreateLogStream",
+                            "logs:PutLogEvents"],
+                            "Resource": { "Fn::Sub": [ "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*", { "region": {"Ref": "AWS::Region"}, "account": {"Ref": "AWS::AccountId"}, "lambda": {"Ref": "LambdaFunction"}} ]}
+                        }
+                    ]
+                }
+            }
+        }
+        ,"AmplifyResourcesPolicy": {
+            "DependsOn": ["LambdaExecutionRole"],
+            "Type": "AWS::IAM::Policy",
+            "Properties": {
+                "PolicyName": "amplify-lambda-execution-policy",
+                "Roles": [{ "Ref": "LambdaExecutionRole" }],
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [{"Effect":"Allow","Action":["cognito-identity:Describe*","cognito-identity:Get*","cognito-identity:List*","cognito-idp:Describe*","cognito-idp:AdminGetDevice","cognito-idp:AdminGetUser","cognito-idp:AdminList*","cognito-idp:List*","cognito-sync:Describe*","cognito-sync:Get*","cognito-sync:List*","iam:ListOpenIdConnectProviders","iam:ListRoles","sns:ListPlatformApplications"],"Resource":[{"Fn::Join":["",["arn:aws:cognito-idp:",{"Ref":"AWS::Region"},":",{"Ref":"AWS::AccountId"},":userpool/",{"Ref":"authyelpai8ad9abbeUserPoolId"}]]}]},{"Effect":"Allow","Action":"s3:ListBucket","Resource":[{"Fn::Join":["",["arn:aws:s3:::",{"Ref":"storagepdfBucketName"}]]}]},{"Effect":"Allow","Action":["s3:PutObject","s3:GetObject"],"Resource":[{"Fn::Join":["",["arn:aws:s3:::",{"Ref":"storagepdfBucketName"},"/*"]]}]},{"Effect":"Allow","Action":["dynamodb:Get*","dynamodb:BatchGetItem","dynamodb:List*","dynamodb:Describe*","dynamodb:Scan","dynamodb:Query","dynamodb:PartiQLSelect"],"Resource":[{"Ref":"storagerestaurantsArn"},{"Fn::Join":["/",[{"Ref":"storagerestaurantsArn"},"index/*"]]}]}]
+                }
+            }
+        }
+        
+        
+        
+        ,"CloudWatchEvent": {
+            "Type": "AWS::Events::Rule",
+            "Properties": {
+                "Description": "Schedule rule for Lambda",
+                "ScheduleExpression": {
+                    "Ref": "CloudWatchRule"
+                },
+                "State": "ENABLED",
+                "Targets": [{
+                    "Arn": { "Fn::GetAtt": ["LambdaFunction", "Arn"] },
+                    "Id": {
+                        "Ref": "LambdaFunction"
+                    }
+                }]
+            }
+        }
+        ,"PermissionForEventsToInvokeLambda": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+                "FunctionName": {
+                    "Ref": "LambdaFunction"
+                    },
+                "Action": "lambda:InvokeFunction",
+                "Principal": "events.amazonaws.com",
+                "SourceArn": { "Fn::GetAtt": ["CloudWatchEvent", "Arn"] }
+            }
+        }
+        
+    },
+    "Outputs": {
+        "Name": {
+            "Value": {
+                "Ref": "LambdaFunction"
+            }
+        },
+        "Arn": {
+            "Value": {"Fn::GetAtt": ["LambdaFunction", "Arn"]}
+        },
+        "Region": {
+            "Value": {
+                "Ref": "AWS::Region"
+            }
+        },
+        "LambdaExecutionRole": {
+            "Value": {
+                "Ref": "LambdaExecutionRole"
+            }
+        }
+        
+        ,"CloudWatchEventRule": {
+            "Value": {
+                "Ref": "CloudWatchEvent"
+            }
+        }
+        
+    }
+}

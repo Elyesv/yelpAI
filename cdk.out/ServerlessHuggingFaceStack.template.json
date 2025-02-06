@@ -566,10 +566,10 @@
     "aws:cdk:path": "ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/Resource"
    }
   },
-  "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStackmainSecurityGroup6E09DABD2049D0C377F5": {
+  "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStacksentimentSecurityGroup396A67382049939E09B3": {
    "Type": "AWS::EC2::SecurityGroupIngress",
    "Properties": {
-    "Description": "from ServerlessHuggingFaceStackmainSecurityGroup6E09DABD:2049",
+    "Description": "from ServerlessHuggingFaceStacksentimentSecurityGroup396A6738:2049",
     "FromPort": 2049,
     "GroupId": {
      "Fn::GetAtt": [
@@ -580,14 +580,38 @@
     "IpProtocol": "tcp",
     "SourceSecurityGroupId": {
      "Fn::GetAtt": [
-      "mainSecurityGroup21CE1E3E",
+      "sentimentSecurityGroup7C5AA4BD",
       "GroupId"
      ]
     },
     "ToPort": 2049
    },
    "Metadata": {
-    "aws:cdk:path": "ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStackmainSecurityGroup6E09DABD:2049"
+    "aws:cdk:path": "ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStacksentimentSecurityGroup396A6738:2049"
+   }
+  },
+  "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStacksummarizationSecurityGroupA60A5F4220498D1641F8": {
+   "Type": "AWS::EC2::SecurityGroupIngress",
+   "Properties": {
+    "Description": "from ServerlessHuggingFaceStacksummarizationSecurityGroupA60A5F42:2049",
+    "FromPort": 2049,
+    "GroupId": {
+     "Fn::GetAtt": [
+      "FileSystemEfsSecurityGroup212D3ACB",
+      "GroupId"
+     ]
+    },
+    "IpProtocol": "tcp",
+    "SourceSecurityGroupId": {
+     "Fn::GetAtt": [
+      "summarizationSecurityGroup6A0C9799",
+      "GroupId"
+     ]
+    },
+    "ToPort": 2049
+   },
+   "Metadata": {
+    "aws:cdk:path": "ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStacksummarizationSecurityGroupA60A5F42:2049"
    }
   },
   "FileSystemEfsMountTarget1586453F0": {
@@ -667,7 +691,7 @@
     "aws:cdk:path": "ServerlessHuggingFaceStack/FileSystem/MLAccessPoint/Resource"
    }
   },
-  "mainServiceRole618ECD8D": {
+  "sentimentServiceRole93BA3801": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -724,10 +748,10 @@
     "VpcPrivateSubnet2RouteTableAssociationA89CAD56"
    ],
    "Metadata": {
-    "aws:cdk:path": "ServerlessHuggingFaceStack/main/ServiceRole/Resource"
+    "aws:cdk:path": "ServerlessHuggingFaceStack/sentiment/ServiceRole/Resource"
    }
   },
-  "mainServiceRoleDefaultPolicy7BF590B4": {
+  "sentimentServiceRoleDefaultPolicy7BBD82A5": {
    "Type": "AWS::IAM::Policy",
    "Properties": {
     "PolicyDocument": {
@@ -794,10 +818,10 @@
      ],
      "Version": "2012-10-17"
     },
-    "PolicyName": "mainServiceRoleDefaultPolicy7BF590B4",
+    "PolicyName": "sentimentServiceRoleDefaultPolicy7BBD82A5",
     "Roles": [
      {
-      "Ref": "mainServiceRole618ECD8D"
+      "Ref": "sentimentServiceRole93BA3801"
      }
     ]
    },
@@ -810,13 +834,13 @@
     "VpcPrivateSubnet2RouteTableAssociationA89CAD56"
    ],
    "Metadata": {
-    "aws:cdk:path": "ServerlessHuggingFaceStack/main/ServiceRole/DefaultPolicy/Resource"
+    "aws:cdk:path": "ServerlessHuggingFaceStack/sentiment/ServiceRole/DefaultPolicy/Resource"
    }
   },
-  "mainSecurityGroup21CE1E3E": {
+  "sentimentSecurityGroup7C5AA4BD": {
    "Type": "AWS::EC2::SecurityGroup",
    "Properties": {
-    "GroupDescription": "Automatic security group for Lambda Function ServerlessHuggingFaceStackmain5E527978",
+    "GroupDescription": "Automatic security group for Lambda Function ServerlessHuggingFaceStacksentiment9DA3E1F9",
     "SecurityGroupEgress": [
      {
       "CidrIp": "0.0.0.0/0",
@@ -843,15 +867,15 @@
     "VpcPrivateSubnet2RouteTableAssociationA89CAD56"
    ],
    "Metadata": {
-    "aws:cdk:path": "ServerlessHuggingFaceStack/main/SecurityGroup/Resource"
+    "aws:cdk:path": "ServerlessHuggingFaceStack/sentiment/SecurityGroup/Resource"
    }
   },
-  "main7AD10839": {
+  "sentiment2141F307": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Code": {
      "ImageUri": {
-      "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-${AWS::AccountId}-${AWS::Region}:2c783800ba612c3548699f96defade9789626700fd113f932d8502928c231c50"
+      "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-${AWS::AccountId}-${AWS::Region}:31f4f2546a2d3bed28f967b1de28c1522b0a32c0ac9106eb97fa621648240b87"
      }
     },
     "Environment": {
@@ -889,14 +913,14 @@
     ],
     "ImageConfig": {
      "Command": [
-      "main.handler"
+      "sentiment.handler"
      ]
     },
     "MemorySize": 3008,
     "PackageType": "Image",
     "Role": {
      "Fn::GetAtt": [
-      "mainServiceRole618ECD8D",
+      "sentimentServiceRole93BA3801",
       "Arn"
      ]
     },
@@ -911,7 +935,7 @@
      "SecurityGroupIds": [
       {
        "Fn::GetAtt": [
-        "mainSecurityGroup21CE1E3E",
+        "sentimentSecurityGroup7C5AA4BD",
         "GroupId"
        ]
       }
@@ -929,17 +953,295 @@
    "DependsOn": [
     "FileSystemEfsMountTarget1586453F0",
     "FileSystemEfsMountTarget24B8EBB43",
-    "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStackmainSecurityGroup6E09DABD2049D0C377F5",
-    "mainServiceRoleDefaultPolicy7BF590B4",
-    "mainServiceRole618ECD8D",
+    "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStacksentimentSecurityGroup396A67382049939E09B3",
+    "sentimentServiceRoleDefaultPolicy7BBD82A5",
+    "sentimentServiceRole93BA3801",
     "VpcPrivateSubnet1DefaultRouteBE02A9ED",
     "VpcPrivateSubnet1RouteTableAssociation70C59FA6",
     "VpcPrivateSubnet2DefaultRoute060D2087",
     "VpcPrivateSubnet2RouteTableAssociationA89CAD56"
    ],
    "Metadata": {
-    "aws:cdk:path": "ServerlessHuggingFaceStack/main/Resource",
-    "aws:asset:path": "asset.2c783800ba612c3548699f96defade9789626700fd113f932d8502928c231c50",
+    "aws:cdk:path": "ServerlessHuggingFaceStack/sentiment/Resource",
+    "aws:asset:path": "asset.31f4f2546a2d3bed28f967b1de28c1522b0a32c0ac9106eb97fa621648240b87",
+    "aws:asset:dockerfile-path": "Dockerfile",
+    "aws:asset:property": "Code.ImageUri"
+   }
+  },
+  "summarizationServiceRole98B15598": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+       ]
+      ]
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "AwsSample",
+      "Value": "ServerlessHuggingFace"
+     }
+    ]
+   },
+   "DependsOn": [
+    "FileSystemEfsMountTarget1586453F0",
+    "FileSystemEfsMountTarget24B8EBB43",
+    "VpcPrivateSubnet1DefaultRouteBE02A9ED",
+    "VpcPrivateSubnet1RouteTableAssociation70C59FA6",
+    "VpcPrivateSubnet2DefaultRoute060D2087",
+    "VpcPrivateSubnet2RouteTableAssociationA89CAD56"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "ServerlessHuggingFaceStack/summarization/ServiceRole/Resource"
+   }
+  },
+  "summarizationServiceRoleDefaultPolicy6970533E": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "elasticfilesystem:ClientMount",
+       "Condition": {
+        "StringEquals": {
+         "elasticfilesystem:AccessPointArn": {
+          "Fn::Join": [
+           "",
+           [
+            "arn:",
+            {
+             "Ref": "AWS::Partition"
+            },
+            ":elasticfilesystem:",
+            {
+             "Ref": "AWS::Region"
+            },
+            ":",
+            {
+             "Ref": "AWS::AccountId"
+            },
+            ":access-point/",
+            {
+             "Ref": "FileSystemMLAccessPoint41C20466"
+            }
+           ]
+          ]
+         }
+        }
+       },
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": "elasticfilesystem:ClientWrite",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":elasticfilesystem:",
+          {
+           "Ref": "AWS::Region"
+          },
+          ":",
+          {
+           "Ref": "AWS::AccountId"
+          },
+          ":file-system/",
+          {
+           "Ref": "FileSystem8A8E25C0"
+          }
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "summarizationServiceRoleDefaultPolicy6970533E",
+    "Roles": [
+     {
+      "Ref": "summarizationServiceRole98B15598"
+     }
+    ]
+   },
+   "DependsOn": [
+    "FileSystemEfsMountTarget1586453F0",
+    "FileSystemEfsMountTarget24B8EBB43",
+    "VpcPrivateSubnet1DefaultRouteBE02A9ED",
+    "VpcPrivateSubnet1RouteTableAssociation70C59FA6",
+    "VpcPrivateSubnet2DefaultRoute060D2087",
+    "VpcPrivateSubnet2RouteTableAssociationA89CAD56"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "ServerlessHuggingFaceStack/summarization/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "summarizationSecurityGroup6A0C9799": {
+   "Type": "AWS::EC2::SecurityGroup",
+   "Properties": {
+    "GroupDescription": "Automatic security group for Lambda Function ServerlessHuggingFaceStacksummarization443F21C1",
+    "SecurityGroupEgress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Allow all outbound traffic by default",
+      "IpProtocol": "-1"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "AwsSample",
+      "Value": "ServerlessHuggingFace"
+     }
+    ],
+    "VpcId": {
+     "Ref": "Vpc8378EB38"
+    }
+   },
+   "DependsOn": [
+    "FileSystemEfsMountTarget1586453F0",
+    "FileSystemEfsMountTarget24B8EBB43",
+    "VpcPrivateSubnet1DefaultRouteBE02A9ED",
+    "VpcPrivateSubnet1RouteTableAssociation70C59FA6",
+    "VpcPrivateSubnet2DefaultRoute060D2087",
+    "VpcPrivateSubnet2RouteTableAssociationA89CAD56"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "ServerlessHuggingFaceStack/summarization/SecurityGroup/Resource"
+   }
+  },
+  "summarizationAB64A9DF": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "ImageUri": {
+      "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-${AWS::AccountId}-${AWS::Region}:31f4f2546a2d3bed28f967b1de28c1522b0a32c0ac9106eb97fa621648240b87"
+     }
+    },
+    "Environment": {
+     "Variables": {
+      "TRANSFORMERS_CACHE": "/mnt/hf_models_cache"
+     }
+    },
+    "FileSystemConfigs": [
+     {
+      "Arn": {
+       "Fn::Join": [
+        "",
+        [
+         "arn:",
+         {
+          "Ref": "AWS::Partition"
+         },
+         ":elasticfilesystem:",
+         {
+          "Ref": "AWS::Region"
+         },
+         ":",
+         {
+          "Ref": "AWS::AccountId"
+         },
+         ":access-point/",
+         {
+          "Ref": "FileSystemMLAccessPoint41C20466"
+         }
+        ]
+       ]
+      },
+      "LocalMountPath": "/mnt/hf_models_cache"
+     }
+    ],
+    "ImageConfig": {
+     "Command": [
+      "summarization.handler"
+     ]
+    },
+    "MemorySize": 3008,
+    "PackageType": "Image",
+    "Role": {
+     "Fn::GetAtt": [
+      "summarizationServiceRole98B15598",
+      "Arn"
+     ]
+    },
+    "Tags": [
+     {
+      "Key": "AwsSample",
+      "Value": "ServerlessHuggingFace"
+     }
+    ],
+    "Timeout": 600,
+    "VpcConfig": {
+     "SecurityGroupIds": [
+      {
+       "Fn::GetAtt": [
+        "summarizationSecurityGroup6A0C9799",
+        "GroupId"
+       ]
+      }
+     ],
+     "SubnetIds": [
+      {
+       "Ref": "VpcPrivateSubnet1Subnet536B997A"
+      },
+      {
+       "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
+      }
+     ]
+    }
+   },
+   "DependsOn": [
+    "FileSystemEfsMountTarget1586453F0",
+    "FileSystemEfsMountTarget24B8EBB43",
+    "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStacksentimentSecurityGroup396A67382049939E09B3",
+    "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStacksummarizationSecurityGroupA60A5F4220498D1641F8",
+    "summarizationServiceRoleDefaultPolicy6970533E",
+    "summarizationServiceRole98B15598",
+    "VpcPrivateSubnet1DefaultRouteBE02A9ED",
+    "VpcPrivateSubnet1RouteTableAssociation70C59FA6",
+    "VpcPrivateSubnet2DefaultRoute060D2087",
+    "VpcPrivateSubnet2RouteTableAssociationA89CAD56"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "ServerlessHuggingFaceStack/summarization/Resource",
+    "aws:asset:path": "asset.31f4f2546a2d3bed28f967b1de28c1522b0a32c0ac9106eb97fa621648240b87",
     "aws:asset:dockerfile-path": "Dockerfile",
     "aws:asset:property": "Code.ImageUri"
    }

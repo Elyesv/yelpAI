@@ -22,6 +22,12 @@ RUN mkdir -p ${FUNCTION_DIR}
 # Copy handler function
 COPY *.py ${FUNCTION_DIR}
 
+# Copier requirements.txt
+COPY requirements.txt ./
+
+# Installer les dépendances dans le bon répertoire
+RUN pip install --target ${FUNCTION_DIR} -r requirements.txt
+
 # Install the function's dependencies
 RUN pip uninstall --yes jupyter
 RUN pip install --target ${FUNCTION_DIR} awslambdaric
