@@ -6,6 +6,16 @@
       ],
       "reviews": [
         "read"
+      ],
+      "pdf": [
+        "create",
+        "read"
+      ]
+    },
+    "auth": {
+      "yelpai8ad9abbe": [
+        "create",
+        "read"
       ]
     }
   },

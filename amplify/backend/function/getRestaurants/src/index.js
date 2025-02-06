@@ -16,7 +16,7 @@ exports.handler = async (event) => {
   if (!process.env.STORAGE_RESTAURANTS_NAME) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: "No restaurants found" }),
+      body: JSON.stringify({ message: "Table name is missing in environment variables" }),
     };
   }
 
@@ -28,13 +28,24 @@ exports.handler = async (event) => {
     if (!Items || Items.length === 0) {
       return {
         statusCode: 404,
-        body: JSON.stringify({ message: "No Item found" }),
+        body: JSON.stringify({ message: "No items found in the database" }),
+      };
+    }
+
+    const filteredItems = Items.filter(
+      (item) => item.average_feeling === "positif" && item.word_cloud
+    );
+
+    if (filteredItems.length === 0) {
+      return {
+        statusCode: 404,
+        body: JSON.stringify({ message: "No matching items found" }),
       };
     }
 
     return {
       statusCode: 200,
-      body: JSON.stringify(Items),
+      body: JSON.stringify(filteredItems),
     };
   } catch (error) {
     console.error("DynamoDB scan error:", error);
