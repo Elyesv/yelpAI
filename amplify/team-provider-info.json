@@ -47,7 +47,7 @@
         },
         "getRestaurant": {
           "deploymentBucketName": "amplify-yelpai-api-657cf-deployment",
-          "s3Key": "amplify-builds/getRestaurant-54376f56323174387849-build.zip"
+          "s3Key": "amplify-builds/getRestaurant-574457325064514b6543-build.zip"
         }
       },
       "api": {
