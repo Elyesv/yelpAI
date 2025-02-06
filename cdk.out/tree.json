@@ -773,13 +773,13 @@
                       "version": "2.177.0"
                     }
                   },
-                  "from ServerlessHuggingFaceStackanalysefeelingsSecurityGroup26BD27E6:2049": {
-                    "id": "from ServerlessHuggingFaceStackanalysefeelingsSecurityGroup26BD27E6:2049",
-                    "path": "ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStackanalysefeelingsSecurityGroup26BD27E6:2049",
+                  "from ServerlessHuggingFaceStacksentimentSecurityGroup396A6738:2049": {
+                    "id": "from ServerlessHuggingFaceStacksentimentSecurityGroup396A6738:2049",
+                    "path": "ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStacksentimentSecurityGroup396A6738:2049",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
                       "aws:cdk:cloudformation:props": {
-                        "description": "from ServerlessHuggingFaceStackanalysefeelingsSecurityGroup26BD27E6:2049",
+                        "description": "from ServerlessHuggingFaceStacksentimentSecurityGroup396A6738:2049",
                         "fromPort": 2049,
                         "groupId": {
                           "Fn::GetAtt": [
@@ -790,7 +790,7 @@
                         "ipProtocol": "tcp",
                         "sourceSecurityGroupId": {
                           "Fn::GetAtt": [
-                            "analysefeelingsSecurityGroupD7AC4B91",
+                            "sentimentSecurityGroup7C5AA4BD",
                             "GroupId"
                           ]
                         },
@@ -802,13 +802,13 @@
                       "version": "2.177.0"
                     }
                   },
-                  "from ServerlessHuggingFaceStackextractwordsSecurityGroup7E59EDA0:2049": {
-                    "id": "from ServerlessHuggingFaceStackextractwordsSecurityGroup7E59EDA0:2049",
-                    "path": "ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStackextractwordsSecurityGroup7E59EDA0:2049",
+                  "from ServerlessHuggingFaceStacksummarizationSecurityGroupA60A5F42:2049": {
+                    "id": "from ServerlessHuggingFaceStacksummarizationSecurityGroupA60A5F42:2049",
+                    "path": "ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStacksummarizationSecurityGroupA60A5F42:2049",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
                       "aws:cdk:cloudformation:props": {
-                        "description": "from ServerlessHuggingFaceStackextractwordsSecurityGroup7E59EDA0:2049",
+                        "description": "from ServerlessHuggingFaceStacksummarizationSecurityGroupA60A5F42:2049",
                         "fromPort": 2049,
                         "groupId": {
                           "Fn::GetAtt": [
@@ -819,36 +819,7 @@
                         "ipProtocol": "tcp",
                         "sourceSecurityGroupId": {
                           "Fn::GetAtt": [
-                            "extractwordsSecurityGroupDFA822EE",
-                            "GroupId"
-                          ]
-                        },
-                        "toPort": 2049
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupIngress",
-                      "version": "2.177.0"
-                    }
-                  },
-                  "from ServerlessHuggingFaceStackmainSecurityGroup6E09DABD:2049": {
-                    "id": "from ServerlessHuggingFaceStackmainSecurityGroup6E09DABD:2049",
-                    "path": "ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStackmainSecurityGroup6E09DABD:2049",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
-                      "aws:cdk:cloudformation:props": {
-                        "description": "from ServerlessHuggingFaceStackmainSecurityGroup6E09DABD:2049",
-                        "fromPort": 2049,
-                        "groupId": {
-                          "Fn::GetAtt": [
-                            "FileSystemEfsSecurityGroup212D3ACB",
-                            "GroupId"
-                          ]
-                        },
-                        "ipProtocol": "tcp",
-                        "sourceSecurityGroupId": {
-                          "Fn::GetAtt": [
-                            "mainSecurityGroup21CE1E3E",
+                            "summarizationSecurityGroup6A0C9799",
                             "GroupId"
                           ]
                         },
@@ -974,17 +945,17 @@
               "version": "2.177.0"
             }
           },
-          "analyse_feelings": {
-            "id": "analyse_feelings",
-            "path": "ServerlessHuggingFaceStack/analyse_feelings",
+          "sentiment": {
+            "id": "sentiment",
+            "path": "ServerlessHuggingFaceStack/sentiment",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "ServerlessHuggingFaceStack/analyse_feelings/ServiceRole",
+                "path": "ServerlessHuggingFaceStack/sentiment/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "ServerlessHuggingFaceStack/analyse_feelings/ServiceRole/ImportServiceRole",
+                    "path": "ServerlessHuggingFaceStack/sentiment/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.177.0"
@@ -992,7 +963,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "ServerlessHuggingFaceStack/analyse_feelings/ServiceRole/Resource",
+                    "path": "ServerlessHuggingFaceStack/sentiment/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -1049,11 +1020,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "ServerlessHuggingFaceStack/analyse_feelings/ServiceRole/DefaultPolicy",
+                    "path": "ServerlessHuggingFaceStack/sentiment/ServiceRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "ServerlessHuggingFaceStack/analyse_feelings/ServiceRole/DefaultPolicy/Resource",
+                        "path": "ServerlessHuggingFaceStack/sentiment/ServiceRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -1121,10 +1092,10 @@
                               ],
                               "Version": "2012-10-17"
                             },
-                            "policyName": "analysefeelingsServiceRoleDefaultPolicyFA9A0E95",
+                            "policyName": "sentimentServiceRoleDefaultPolicy7BBD82A5",
                             "roles": [
                               {
-                                "Ref": "analysefeelingsServiceRole7D16CC8C"
+                                "Ref": "sentimentServiceRole93BA3801"
                               }
                             ]
                           }
@@ -1148,11 +1119,11 @@
               },
               "AssetImage": {
                 "id": "AssetImage",
-                "path": "ServerlessHuggingFaceStack/analyse_feelings/AssetImage",
+                "path": "ServerlessHuggingFaceStack/sentiment/AssetImage",
                 "children": {
                   "Staging": {
                     "id": "Staging",
-                    "path": "ServerlessHuggingFaceStack/analyse_feelings/AssetImage/Staging",
+                    "path": "ServerlessHuggingFaceStack/sentiment/AssetImage/Staging",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.177.0"
@@ -1160,7 +1131,7 @@
                   },
                   "Repository": {
                     "id": "Repository",
-                    "path": "ServerlessHuggingFaceStack/analyse_feelings/AssetImage/Repository",
+                    "path": "ServerlessHuggingFaceStack/sentiment/AssetImage/Repository",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_ecr.RepositoryBase",
                       "version": "2.177.0"
@@ -1174,15 +1145,15 @@
               },
               "SecurityGroup": {
                 "id": "SecurityGroup",
-                "path": "ServerlessHuggingFaceStack/analyse_feelings/SecurityGroup",
+                "path": "ServerlessHuggingFaceStack/sentiment/SecurityGroup",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "ServerlessHuggingFaceStack/analyse_feelings/SecurityGroup/Resource",
+                    "path": "ServerlessHuggingFaceStack/sentiment/SecurityGroup/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                       "aws:cdk:cloudformation:props": {
-                        "groupDescription": "Automatic security group for Lambda Function ServerlessHuggingFaceStackanalysefeelings1BA5F510",
+                        "groupDescription": "Automatic security group for Lambda Function ServerlessHuggingFaceStacksentiment9DA3E1F9",
                         "securityGroupEgress": [
                           {
                             "cidrIp": "0.0.0.0/0",
@@ -1214,13 +1185,13 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "ServerlessHuggingFaceStack/analyse_feelings/Resource",
+                "path": "ServerlessHuggingFaceStack/sentiment/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "imageUri": {
-                        "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-${AWS::AccountId}-${AWS::Region}:856181c9bce2189030d9dcd1c5b22681f121fc4c8eb7ab08efe44e257c597c3a"
+                        "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-${AWS::AccountId}-${AWS::Region}:31f4f2546a2d3bed28f967b1de28c1522b0a32c0ac9106eb97fa621648240b87"
                       }
                     },
                     "environment": {
@@ -1258,14 +1229,14 @@
                     ],
                     "imageConfig": {
                       "command": [
-                        "analyse_feelings.handler"
+                        "sentiment.handler"
                       ]
                     },
                     "memorySize": 3008,
                     "packageType": "Image",
                     "role": {
                       "Fn::GetAtt": [
-                        "analysefeelingsServiceRole7D16CC8C",
+                        "sentimentServiceRole93BA3801",
                         "Arn"
                       ]
                     },
@@ -1288,7 +1259,7 @@
                       "securityGroupIds": [
                         {
                           "Fn::GetAtt": [
-                            "analysefeelingsSecurityGroupD7AC4B91",
+                            "sentimentSecurityGroup7C5AA4BD",
                             "GroupId"
                           ]
                         }
@@ -1307,17 +1278,17 @@
               "version": "2.177.0"
             }
           },
-          "extract_words": {
-            "id": "extract_words",
-            "path": "ServerlessHuggingFaceStack/extract_words",
+          "summarization": {
+            "id": "summarization",
+            "path": "ServerlessHuggingFaceStack/summarization",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "ServerlessHuggingFaceStack/extract_words/ServiceRole",
+                "path": "ServerlessHuggingFaceStack/summarization/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "ServerlessHuggingFaceStack/extract_words/ServiceRole/ImportServiceRole",
+                    "path": "ServerlessHuggingFaceStack/summarization/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.177.0"
@@ -1325,7 +1296,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "ServerlessHuggingFaceStack/extract_words/ServiceRole/Resource",
+                    "path": "ServerlessHuggingFaceStack/summarization/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -1382,11 +1353,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "ServerlessHuggingFaceStack/extract_words/ServiceRole/DefaultPolicy",
+                    "path": "ServerlessHuggingFaceStack/summarization/ServiceRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "ServerlessHuggingFaceStack/extract_words/ServiceRole/DefaultPolicy/Resource",
+                        "path": "ServerlessHuggingFaceStack/summarization/ServiceRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -1454,10 +1425,10 @@
                               ],
                               "Version": "2012-10-17"
                             },
-                            "policyName": "extractwordsServiceRoleDefaultPolicy08EDD3A6",
+                            "policyName": "summarizationServiceRoleDefaultPolicy6970533E",
                             "roles": [
                               {
-                                "Ref": "extractwordsServiceRole93349C78"
+                                "Ref": "summarizationServiceRole98B15598"
                               }
                             ]
                           }
@@ -1481,11 +1452,11 @@
               },
               "AssetImage": {
                 "id": "AssetImage",
-                "path": "ServerlessHuggingFaceStack/extract_words/AssetImage",
+                "path": "ServerlessHuggingFaceStack/summarization/AssetImage",
                 "children": {
                   "Staging": {
                     "id": "Staging",
-                    "path": "ServerlessHuggingFaceStack/extract_words/AssetImage/Staging",
+                    "path": "ServerlessHuggingFaceStack/summarization/AssetImage/Staging",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.177.0"
@@ -1493,7 +1464,7 @@
                   },
                   "Repository": {
                     "id": "Repository",
-                    "path": "ServerlessHuggingFaceStack/extract_words/AssetImage/Repository",
+                    "path": "ServerlessHuggingFaceStack/summarization/AssetImage/Repository",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_ecr.RepositoryBase",
                       "version": "2.177.0"
@@ -1507,15 +1478,15 @@
               },
               "SecurityGroup": {
                 "id": "SecurityGroup",
-                "path": "ServerlessHuggingFaceStack/extract_words/SecurityGroup",
+                "path": "ServerlessHuggingFaceStack/summarization/SecurityGroup",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "ServerlessHuggingFaceStack/extract_words/SecurityGroup/Resource",
+                    "path": "ServerlessHuggingFaceStack/summarization/SecurityGroup/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                       "aws:cdk:cloudformation:props": {
-                        "groupDescription": "Automatic security group for Lambda Function ServerlessHuggingFaceStackextractwords0B2677FD",
+                        "groupDescription": "Automatic security group for Lambda Function ServerlessHuggingFaceStacksummarization443F21C1",
                         "securityGroupEgress": [
                           {
                             "cidrIp": "0.0.0.0/0",
@@ -1547,13 +1518,13 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "ServerlessHuggingFaceStack/extract_words/Resource",
+                "path": "ServerlessHuggingFaceStack/summarization/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "imageUri": {
-                        "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-${AWS::AccountId}-${AWS::Region}:856181c9bce2189030d9dcd1c5b22681f121fc4c8eb7ab08efe44e257c597c3a"
+                        "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-${AWS::AccountId}-${AWS::Region}:31f4f2546a2d3bed28f967b1de28c1522b0a32c0ac9106eb97fa621648240b87"
                       }
                     },
                     "environment": {
@@ -1591,14 +1562,14 @@
                     ],
                     "imageConfig": {
                       "command": [
-                        "extract_words.handler"
+                        "summarization.handler"
                       ]
                     },
                     "memorySize": 3008,
                     "packageType": "Image",
                     "role": {
                       "Fn::GetAtt": [
-                        "extractwordsServiceRole93349C78",
+                        "summarizationServiceRole98B15598",
                         "Arn"
                       ]
                     },
@@ -1621,340 +1592,7 @@
                       "securityGroupIds": [
                         {
                           "Fn::GetAtt": [
-                            "extractwordsSecurityGroupDFA822EE",
-                            "GroupId"
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
-                  "version": "2.177.0"
-                }
-              }
-            },
-            "constructInfo": {
-              "fqn": "aws-cdk-lib.aws_lambda.DockerImageFunction",
-              "version": "2.177.0"
-            }
-          },
-          "main": {
-            "id": "main",
-            "path": "ServerlessHuggingFaceStack/main",
-            "children": {
-              "ServiceRole": {
-                "id": "ServiceRole",
-                "path": "ServerlessHuggingFaceStack/main/ServiceRole",
-                "children": {
-                  "ImportServiceRole": {
-                    "id": "ImportServiceRole",
-                    "path": "ServerlessHuggingFaceStack/main/ServiceRole/ImportServiceRole",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.177.0"
-                    }
-                  },
-                  "Resource": {
-                    "id": "Resource",
-                    "path": "ServerlessHuggingFaceStack/main/ServiceRole/Resource",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
-                      "aws:cdk:cloudformation:props": {
-                        "assumeRolePolicyDocument": {
-                          "Statement": [
-                            {
-                              "Action": "sts:AssumeRole",
-                              "Effect": "Allow",
-                              "Principal": {
-                                "Service": "lambda.amazonaws.com"
-                              }
-                            }
-                          ],
-                          "Version": "2012-10-17"
-                        },
-                        "managedPolicyArns": [
-                          {
-                            "Fn::Join": [
-                              "",
-                              [
-                                "arn:",
-                                {
-                                  "Ref": "AWS::Partition"
-                                },
-                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-                              ]
-                            ]
-                          },
-                          {
-                            "Fn::Join": [
-                              "",
-                              [
-                                "arn:",
-                                {
-                                  "Ref": "AWS::Partition"
-                                },
-                                ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
-                              ]
-                            ]
-                          }
-                        ],
-                        "tags": [
-                          {
-                            "key": "AwsSample",
-                            "value": "ServerlessHuggingFace"
-                          }
-                        ]
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                      "version": "2.177.0"
-                    }
-                  },
-                  "DefaultPolicy": {
-                    "id": "DefaultPolicy",
-                    "path": "ServerlessHuggingFaceStack/main/ServiceRole/DefaultPolicy",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "ServerlessHuggingFaceStack/main/ServiceRole/DefaultPolicy/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
-                          "aws:cdk:cloudformation:props": {
-                            "policyDocument": {
-                              "Statement": [
-                                {
-                                  "Action": "elasticfilesystem:ClientMount",
-                                  "Condition": {
-                                    "StringEquals": {
-                                      "elasticfilesystem:AccessPointArn": {
-                                        "Fn::Join": [
-                                          "",
-                                          [
-                                            "arn:",
-                                            {
-                                              "Ref": "AWS::Partition"
-                                            },
-                                            ":elasticfilesystem:",
-                                            {
-                                              "Ref": "AWS::Region"
-                                            },
-                                            ":",
-                                            {
-                                              "Ref": "AWS::AccountId"
-                                            },
-                                            ":access-point/",
-                                            {
-                                              "Ref": "FileSystemMLAccessPoint41C20466"
-                                            }
-                                          ]
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "Effect": "Allow",
-                                  "Resource": "*"
-                                },
-                                {
-                                  "Action": "elasticfilesystem:ClientWrite",
-                                  "Effect": "Allow",
-                                  "Resource": {
-                                    "Fn::Join": [
-                                      "",
-                                      [
-                                        "arn:",
-                                        {
-                                          "Ref": "AWS::Partition"
-                                        },
-                                        ":elasticfilesystem:",
-                                        {
-                                          "Ref": "AWS::Region"
-                                        },
-                                        ":",
-                                        {
-                                          "Ref": "AWS::AccountId"
-                                        },
-                                        ":file-system/",
-                                        {
-                                          "Ref": "FileSystem8A8E25C0"
-                                        }
-                                      ]
-                                    ]
-                                  }
-                                }
-                              ],
-                              "Version": "2012-10-17"
-                            },
-                            "policyName": "mainServiceRoleDefaultPolicy7BF590B4",
-                            "roles": [
-                              {
-                                "Ref": "mainServiceRole618ECD8D"
-                              }
-                            ]
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
-                          "version": "2.177.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.Policy",
-                      "version": "2.177.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_iam.Role",
-                  "version": "2.177.0"
-                }
-              },
-              "AssetImage": {
-                "id": "AssetImage",
-                "path": "ServerlessHuggingFaceStack/main/AssetImage",
-                "children": {
-                  "Staging": {
-                    "id": "Staging",
-                    "path": "ServerlessHuggingFaceStack/main/AssetImage/Staging",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.AssetStaging",
-                      "version": "2.177.0"
-                    }
-                  },
-                  "Repository": {
-                    "id": "Repository",
-                    "path": "ServerlessHuggingFaceStack/main/AssetImage/Repository",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_ecr.RepositoryBase",
-                      "version": "2.177.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_ecr_assets.DockerImageAsset",
-                  "version": "2.177.0"
-                }
-              },
-              "SecurityGroup": {
-                "id": "SecurityGroup",
-                "path": "ServerlessHuggingFaceStack/main/SecurityGroup",
-                "children": {
-                  "Resource": {
-                    "id": "Resource",
-                    "path": "ServerlessHuggingFaceStack/main/SecurityGroup/Resource",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
-                      "aws:cdk:cloudformation:props": {
-                        "groupDescription": "Automatic security group for Lambda Function ServerlessHuggingFaceStackmain5E527978",
-                        "securityGroupEgress": [
-                          {
-                            "cidrIp": "0.0.0.0/0",
-                            "description": "Allow all outbound traffic by default",
-                            "ipProtocol": "-1"
-                          }
-                        ],
-                        "tags": [
-                          {
-                            "key": "AwsSample",
-                            "value": "ServerlessHuggingFace"
-                          }
-                        ],
-                        "vpcId": {
-                          "Ref": "Vpc8378EB38"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroup",
-                      "version": "2.177.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_ec2.SecurityGroup",
-                  "version": "2.177.0"
-                }
-              },
-              "Resource": {
-                "id": "Resource",
-                "path": "ServerlessHuggingFaceStack/main/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
-                  "aws:cdk:cloudformation:props": {
-                    "code": {
-                      "imageUri": {
-                        "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-${AWS::AccountId}-${AWS::Region}:856181c9bce2189030d9dcd1c5b22681f121fc4c8eb7ab08efe44e257c597c3a"
-                      }
-                    },
-                    "environment": {
-                      "variables": {
-                        "TRANSFORMERS_CACHE": "/mnt/hf_models_cache"
-                      }
-                    },
-                    "fileSystemConfigs": [
-                      {
-                        "arn": {
-                          "Fn::Join": [
-                            "",
-                            [
-                              "arn:",
-                              {
-                                "Ref": "AWS::Partition"
-                              },
-                              ":elasticfilesystem:",
-                              {
-                                "Ref": "AWS::Region"
-                              },
-                              ":",
-                              {
-                                "Ref": "AWS::AccountId"
-                              },
-                              ":access-point/",
-                              {
-                                "Ref": "FileSystemMLAccessPoint41C20466"
-                              }
-                            ]
-                          ]
-                        },
-                        "localMountPath": "/mnt/hf_models_cache"
-                      }
-                    ],
-                    "imageConfig": {
-                      "command": [
-                        "main.handler"
-                      ]
-                    },
-                    "memorySize": 3008,
-                    "packageType": "Image",
-                    "role": {
-                      "Fn::GetAtt": [
-                        "mainServiceRole618ECD8D",
-                        "Arn"
-                      ]
-                    },
-                    "tags": [
-                      {
-                        "key": "AwsSample",
-                        "value": "ServerlessHuggingFace"
-                      }
-                    ],
-                    "timeout": 600,
-                    "vpcConfig": {
-                      "subnetIds": [
-                        {
-                          "Ref": "VpcPrivateSubnet1Subnet536B997A"
-                        },
-                        {
-                          "Ref": "VpcPrivateSubnet2Subnet3788AAA1"
-                        }
-                      ],
-                      "securityGroupIds": [
-                        {
-                          "Fn::GetAtt": [
-                            "mainSecurityGroup21CE1E3E",
+                            "summarizationSecurityGroup6A0C9799",
                             "GroupId"
                           ]
                         }

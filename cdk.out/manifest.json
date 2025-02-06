@@ -21,7 +21,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/35e9946935baf32e4eb451c6d8297a465c240c345da6fba0f24ad8ee40203726.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/225b3acfcfce09a4b99297fbb0740e9dc453a4ca7e0343cb6e45ac047642656d.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -198,22 +198,16 @@
             "data": "FileSystemEfsSecurityGroup212D3ACB"
           }
         ],
-        "/ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStackanalysefeelingsSecurityGroup26BD27E6:2049": [
+        "/ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStacksentimentSecurityGroup396A6738:2049": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStackanalysefeelingsSecurityGroup26BD27E6204927A780DF"
+            "data": "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStacksentimentSecurityGroup396A67382049939E09B3"
           }
         ],
-        "/ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStackextractwordsSecurityGroup7E59EDA0:2049": [
+        "/ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStacksummarizationSecurityGroupA60A5F42:2049": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStackextractwordsSecurityGroup7E59EDA02049A12E8AEA"
-          }
-        ],
-        "/ServerlessHuggingFaceStack/FileSystem/EfsSecurityGroup/from ServerlessHuggingFaceStackmainSecurityGroup6E09DABD:2049": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStackmainSecurityGroup6E09DABD2049D0C377F5"
+            "data": "FileSystemEfsSecurityGroupfromServerlessHuggingFaceStacksummarizationSecurityGroupA60A5F4220498D1641F8"
           }
         ],
         "/ServerlessHuggingFaceStack/FileSystem/EfsMountTarget1": [
@@ -234,151 +228,102 @@
             "data": "FileSystemMLAccessPoint41C20466"
           }
         ],
-        "/ServerlessHuggingFaceStack/analyse_feelings/ServiceRole/Resource": [
+        "/ServerlessHuggingFaceStack/sentiment/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "analysefeelingsServiceRole7D16CC8C"
+            "data": "sentimentServiceRole93BA3801"
           }
         ],
-        "/ServerlessHuggingFaceStack/analyse_feelings/ServiceRole/DefaultPolicy/Resource": [
+        "/ServerlessHuggingFaceStack/sentiment/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "analysefeelingsServiceRoleDefaultPolicyFA9A0E95"
+            "data": "sentimentServiceRoleDefaultPolicy7BBD82A5"
           }
         ],
-        "/ServerlessHuggingFaceStack/analyse_feelings/SecurityGroup": [
+        "/ServerlessHuggingFaceStack/sentiment/SecurityGroup": [
           {
             "type": "aws:cdk:warning",
             "data": "Ignoring Egress rule since 'allowAllOutbound' is set to true; To add customized rules, set allowAllOutbound=false on the SecurityGroup [ack: @aws-cdk/aws-ec2:ipv4IgnoreEgressRule]",
             "trace": [
-              "Annotations.addMessage (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1608)",
-              "Annotations.addWarningV2 (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/core/lib/annotations.js:1:825)",
-              "SecurityGroup.addEgressRule (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.js:1:7618)",
-              "/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1860",
-              "ReactiveList.forEachAndForever (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5923)",
-              "/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1821",
-              "ReactiveList.forEachAndForever (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5923)",
-              "Connections.allowTo (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1749)",
-              "DockerImageFunction.configureVpc (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-lambda/lib/function.js:1:25733)",
-              "new Function (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-lambda/lib/function.js:1:13414)",
-              "new DockerImageFunction (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-lambda/lib/image-function.js:1:1794)",
-              "Kernel._Kernel_create (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:9128:25)",
-              "Kernel.create (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:8798:93)",
-              "KernelHost.processRequest (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:10718:36)",
-              "KernelHost.run (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:10678:22)",
-              "Immediate._onImmediate (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:10679:46)",
+              "Annotations.addMessage (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1608)",
+              "Annotations.addWarningV2 (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/core/lib/annotations.js:1:825)",
+              "SecurityGroup.addEgressRule (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.js:1:7618)",
+              "/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1860",
+              "ReactiveList.forEachAndForever (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5923)",
+              "/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1821",
+              "ReactiveList.forEachAndForever (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5923)",
+              "Connections.allowTo (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1749)",
+              "DockerImageFunction.configureVpc (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-lambda/lib/function.js:1:25733)",
+              "new Function (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-lambda/lib/function.js:1:13414)",
+              "new DockerImageFunction (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-lambda/lib/image-function.js:1:1794)",
+              "Kernel._Kernel_create (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmpk2citkpi/lib/program.js:9128:25)",
+              "Kernel.create (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmpk2citkpi/lib/program.js:8798:93)",
+              "KernelHost.processRequest (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmpk2citkpi/lib/program.js:10718:36)",
+              "KernelHost.run (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmpk2citkpi/lib/program.js:10678:22)",
+              "Immediate._onImmediate (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmpk2citkpi/lib/program.js:10679:46)",
               "process.processImmediate (node:internal/timers:476:21)"
             ]
           }
         ],
-        "/ServerlessHuggingFaceStack/analyse_feelings/SecurityGroup/Resource": [
+        "/ServerlessHuggingFaceStack/sentiment/SecurityGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "analysefeelingsSecurityGroupD7AC4B91"
+            "data": "sentimentSecurityGroup7C5AA4BD"
           }
         ],
-        "/ServerlessHuggingFaceStack/analyse_feelings/Resource": [
+        "/ServerlessHuggingFaceStack/sentiment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "analysefeelingsF8DF0335"
+            "data": "sentiment2141F307"
           }
         ],
-        "/ServerlessHuggingFaceStack/extract_words/ServiceRole/Resource": [
+        "/ServerlessHuggingFaceStack/summarization/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "extractwordsServiceRole93349C78"
+            "data": "summarizationServiceRole98B15598"
           }
         ],
-        "/ServerlessHuggingFaceStack/extract_words/ServiceRole/DefaultPolicy/Resource": [
+        "/ServerlessHuggingFaceStack/summarization/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "extractwordsServiceRoleDefaultPolicy08EDD3A6"
+            "data": "summarizationServiceRoleDefaultPolicy6970533E"
           }
         ],
-        "/ServerlessHuggingFaceStack/extract_words/SecurityGroup": [
+        "/ServerlessHuggingFaceStack/summarization/SecurityGroup": [
           {
             "type": "aws:cdk:warning",
             "data": "Ignoring Egress rule since 'allowAllOutbound' is set to true; To add customized rules, set allowAllOutbound=false on the SecurityGroup [ack: @aws-cdk/aws-ec2:ipv4IgnoreEgressRule]",
             "trace": [
-              "Annotations.addMessage (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1608)",
-              "Annotations.addWarningV2 (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/core/lib/annotations.js:1:825)",
-              "SecurityGroup.addEgressRule (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.js:1:7618)",
-              "/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1860",
-              "ReactiveList.forEachAndForever (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5923)",
-              "/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1821",
-              "ReactiveList.forEachAndForever (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5923)",
-              "Connections.allowTo (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1749)",
-              "DockerImageFunction.configureVpc (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-lambda/lib/function.js:1:25733)",
-              "new Function (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-lambda/lib/function.js:1:13414)",
-              "new DockerImageFunction (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-lambda/lib/image-function.js:1:1794)",
-              "Kernel._Kernel_create (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:9128:25)",
-              "Kernel.create (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:8798:93)",
-              "KernelHost.processRequest (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:10718:36)",
-              "KernelHost.run (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:10678:22)",
-              "Immediate._onImmediate (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:10679:46)",
+              "Annotations.addMessage (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1608)",
+              "Annotations.addWarningV2 (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/core/lib/annotations.js:1:825)",
+              "SecurityGroup.addEgressRule (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.js:1:7618)",
+              "/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1860",
+              "ReactiveList.forEachAndForever (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5923)",
+              "/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1821",
+              "ReactiveList.forEachAndForever (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5923)",
+              "Connections.allowTo (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1749)",
+              "DockerImageFunction.configureVpc (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-lambda/lib/function.js:1:25733)",
+              "new Function (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-lambda/lib/function.js:1:13414)",
+              "new DockerImageFunction (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-oG1L0b/node_modules/aws-cdk-lib/aws-lambda/lib/image-function.js:1:1794)",
+              "Kernel._Kernel_create (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmpk2citkpi/lib/program.js:9128:25)",
+              "Kernel.create (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmpk2citkpi/lib/program.js:8798:93)",
+              "KernelHost.processRequest (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmpk2citkpi/lib/program.js:10718:36)",
+              "KernelHost.run (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmpk2citkpi/lib/program.js:10678:22)",
+              "Immediate._onImmediate (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmpk2citkpi/lib/program.js:10679:46)",
               "process.processImmediate (node:internal/timers:476:21)"
             ]
           }
         ],
-        "/ServerlessHuggingFaceStack/extract_words/SecurityGroup/Resource": [
+        "/ServerlessHuggingFaceStack/summarization/SecurityGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "extractwordsSecurityGroupDFA822EE"
+            "data": "summarizationSecurityGroup6A0C9799"
           }
         ],
-        "/ServerlessHuggingFaceStack/extract_words/Resource": [
+        "/ServerlessHuggingFaceStack/summarization/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "extractwordsC5CCC92A"
-          }
-        ],
-        "/ServerlessHuggingFaceStack/main/ServiceRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "mainServiceRole618ECD8D"
-          }
-        ],
-        "/ServerlessHuggingFaceStack/main/ServiceRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "mainServiceRoleDefaultPolicy7BF590B4"
-          }
-        ],
-        "/ServerlessHuggingFaceStack/main/SecurityGroup": [
-          {
-            "type": "aws:cdk:warning",
-            "data": "Ignoring Egress rule since 'allowAllOutbound' is set to true; To add customized rules, set allowAllOutbound=false on the SecurityGroup [ack: @aws-cdk/aws-ec2:ipv4IgnoreEgressRule]",
-            "trace": [
-              "Annotations.addMessage (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1608)",
-              "Annotations.addWarningV2 (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/core/lib/annotations.js:1:825)",
-              "SecurityGroup.addEgressRule (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/security-group.js:1:7618)",
-              "/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1860",
-              "ReactiveList.forEachAndForever (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5923)",
-              "/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1821",
-              "ReactiveList.forEachAndForever (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:5923)",
-              "Connections.allowTo (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-ec2/lib/connections.js:1:1749)",
-              "DockerImageFunction.configureVpc (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-lambda/lib/function.js:1:25733)",
-              "new Function (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-lambda/lib/function.js:1:13414)",
-              "new DockerImageFunction (/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/jsii-kernel-EP1PL9/node_modules/aws-cdk-lib/aws-lambda/lib/image-function.js:1:1794)",
-              "Kernel._Kernel_create (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:9128:25)",
-              "Kernel.create (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:8798:93)",
-              "KernelHost.processRequest (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:10718:36)",
-              "KernelHost.run (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:10678:22)",
-              "Immediate._onImmediate (/private/var/folders/73/ffdb84g14b37t5g6877s9nfr0000gn/T/tmp9fnyejbs/lib/program.js:10679:46)",
-              "process.processImmediate (node:internal/timers:476:21)"
-            ]
-          }
-        ],
-        "/ServerlessHuggingFaceStack/main/SecurityGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "mainSecurityGroup21CE1E3E"
-          }
-        ],
-        "/ServerlessHuggingFaceStack/main/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "main7AD10839"
+            "data": "summarizationAB64A9DF"
           }
         ],
         "/ServerlessHuggingFaceStack/CDKMetadata/Default": [
