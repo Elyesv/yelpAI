@@ -16,7 +16,7 @@ const { DynamoDBDocumentClient, QueryCommand, ScanCommand } = require("@aws-sdk/
 const { jsPDF } = require("jspdf");
 const { S3Client, PutObjectCommand, GetObjectCommand } = require("@aws-sdk/client-s3");
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
-const fetch = require("node-fetch"); // Pour récupérer l'image QuickChart
+const fetch = require("node-fetch");
 
 const s3Client = new S3Client({ region: process.env.REGION });
 const client = new DynamoDBClient({});
