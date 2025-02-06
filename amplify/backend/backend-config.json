@@ -31,6 +31,34 @@
       "service": "API Gateway"
     }
   },
+  "auth": {
+    "yelpai8ad9abbe": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
   "function": {
     "getRestaurant": {
       "build": true,
@@ -52,6 +80,20 @@
           ],
           "category": "storage",
           "resourceName": "reviews"
+        },
+        {
+          "attributes": [
+            "BucketName"
+          ],
+          "category": "storage",
+          "resourceName": "pdf"
+        },
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "yelpai8ad9abbe"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -90,57 +132,12 @@
       "service": "Lambda"
     }
   },
-  "parameters": {
-    "AMPLIFY_function_getRestaurantReviews_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getRestaurantReviews"
-        }
-      ]
-    },
-    "AMPLIFY_function_getRestaurantReviews_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getRestaurantReviews"
-        }
-      ]
-    },
-    "AMPLIFY_function_getRestaurant_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getRestaurant"
-        }
-      ]
-    },
-    "AMPLIFY_function_getRestaurant_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getRestaurant"
-        }
-      ]
-    },
-    "AMPLIFY_function_getRestaurants_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getRestaurants"
-        }
-      ]
-    },
-    "AMPLIFY_function_getRestaurants_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "getRestaurants"
-        }
-      ]
-    }
-  },
   "storage": {
+    "pdf": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    },
     "restaurants": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"

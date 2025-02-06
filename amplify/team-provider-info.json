@@ -33,12 +33,13 @@
     "categories": {
       "storage": {
         "restaurants": {},
-        "reviews": {}
+        "reviews": {},
+        "pdf": {}
       },
       "function": {
         "getRestaurants": {
           "deploymentBucketName": "amplify-yelpai-api-657cf-deployment",
-          "s3Key": "amplify-builds/getRestaurants-57634a436f3542643252-build.zip"
+          "s3Key": "amplify-builds/getRestaurants-50315475465578363052-build.zip"
         },
         "getRestaurantReviews": {
           "deploymentBucketName": "amplify-yelpai-api-657cf-deployment",
@@ -46,11 +47,14 @@
         },
         "getRestaurant": {
           "deploymentBucketName": "amplify-yelpai-api-657cf-deployment",
-          "s3Key": "amplify-builds/getRestaurant-592b4745524336384949-build.zip"
+          "s3Key": "amplify-builds/getRestaurant-54376f56323174387849-build.zip"
         }
       },
       "api": {
         "yelpapi": {}
+      },
+      "auth": {
+        "yelpai8ad9abbe": {}
       }
     }
   }

@@ -6,6 +6,17 @@ export type AmplifyDependentResourcesAttributes = {
       "RootUrl": "string"
     }
   },
+  "auth": {
+    "yelpai8ad9abbe": {
+      "AppClientID": "string",
+      "AppClientIDWeb": "string",
+      "IdentityPoolId": "string",
+      "IdentityPoolName": "string",
+      "UserPoolArn": "string",
+      "UserPoolId": "string",
+      "UserPoolName": "string"
+    }
+  },
   "function": {
     "getRestaurant": {
       "Arn": "string",
@@ -30,6 +41,10 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
+    "pdf": {
+      "BucketName": "string",
+      "Region": "string"
+    },
     "restaurants": {
       "Arn": "string",
       "Name": "string",
