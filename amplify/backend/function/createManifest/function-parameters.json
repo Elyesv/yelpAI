@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "auth": {
+      "yelpai8ad9abbe": [
+        "read"
+      ]
+    },
+    "storage": {
+      "pdf": [
+        "create",
+        "read",
+        "update"
+      ],
+      "restaurants": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
